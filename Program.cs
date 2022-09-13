@@ -6,6 +6,7 @@ namespace OneListClientReDo
 {
     class Program
     {
+
         // static void Main(string[] args) => MainAsync().GetAwaiter().GetResult();
         static async Task Main(string[] args)
         {
