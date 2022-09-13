@@ -15,7 +15,7 @@ namespace OneListClientReDo
             var client = new HttpClient();
             //  changed from "responseBodyAsString"
             var responseBodyAsStream = await client.GetStreamAsync("https://one-list-api.herokuapp.com/items?access_token=cohort24");
-
+            //was not working before mis-commit from previous
             // Console.WriteLine(responseBodyAsString); <-- cannot return a "stream" in "Console.WriteLine"
 
             //                Describe the shape of the data(array in JSON => List, => items)
