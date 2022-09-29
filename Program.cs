@@ -115,48 +115,42 @@ namespace OneListClientReDo
             while (keepGoing)
             {
                 Console.Clear();
-                Console.Write("Get (A)ll todo, (C)reate an item, (O)ne todo, or (Q)uit: ");
+                Console.Write("Get (A)ll todo, or Get (O)ne todo, (C)reate a new item, or (Q)uit: ");
                 var choice = Console.ReadLine().ToUpper();
                 switch (choice)
                 {
                     case "Q":
                         keepGoing = false;
                         break;
-
-                    case "C":
-                    Console.Write("Enter the description of your new todo: ");
-                    var text = Console.ReadLine();
-
-                    var newItem = new Item
-                    {
-                    Text = text
-                    };
-
-                    await AddOneItem(token, newItem);
-
-                    Console.WriteLine("Press ENTER to continue");
-                    Console.ReadLine();
-                    break;
-
-                    case "O":
-                        Console.Write("Enter the ID ");
-                        var id = int.Parse(Console.ReadLine());
-
-                        await GetOneItem(token, id);
-
+                    case "A":
+                        await ShowAllItems(token);
                         Console.WriteLine("Press ENTER to continue");
                         Console.ReadLine();
                         break;
-                        
-                    case "A":
-                        await ShowAllItems(token);
+                    case "C":
+                        Console.Write("Enter the description of your new todo: ");
+                        var text = Console.ReadLine();
+                        var newItem = new Item
+                        {
+                            Text = text
+                        };
+                        await AddOneItem(token, newItem);
+                        Console.WriteLine("Press ENTER to continue");
+                        Console.ReadLine();
+                        break;
+                    case "O":
+                        Console.Write("Enter the ID of the item to show: ");
+                        var id = int.Parse(Console.ReadLine());
+                        await GetOneItem(token, id);
                         Console.WriteLine("Press ENTER to continue");
                         Console.ReadLine();
                         break;
                     default:
                         break;
                 }
-            }           
+            }
         }
     }
+
 }
+
