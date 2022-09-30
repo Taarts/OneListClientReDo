@@ -81,7 +81,7 @@ namespace OneListClientReDo
 
             // Mapping to item.cs
             // make the data De/Serialized
-              var items = await JsonSerializer.DeserializeAsync<List<Item>>(responseBodyAsStream);
+            var items = await JsonSerializer.DeserializeAsync<List<Item>>(responseBodyAsStream);
             
             var table = new ConsoleTable("Description", "Created At", "Completed");
 
